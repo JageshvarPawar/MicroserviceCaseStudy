@@ -1,0 +1,44 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5111"
+  },
+
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/books",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/book",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/books/getavailablecopies/{bookId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/book/GetAvailableCopies/{bookId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/subscriptions",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/subscription",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ]
+    }
+  ]
+}
